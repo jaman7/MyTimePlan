@@ -10,12 +10,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { animation: true },
   },
-  {
-    path: 'trucks',
-    loadChildren: () => import('./content/trucks/trucks.module').then(mod => mod.TrucksModule),
-    canActivate: [AuthGuard],
-    data: { animation: true },
-  },
 ];
 
 @NgModule({

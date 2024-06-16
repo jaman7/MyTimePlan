@@ -1,0 +1,31 @@
+.config-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-white;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  margin: 0.5rem;
+
+  & .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: $color-white;
+    color: $color-blue;
+
+    & .icon {
+      width: 10px;
+      height: 10px;
+      background-color: $color-white;
+      border: 1px solid $color-blue;
+      margin-right: 0.5rem;
+      transform: rotate(45deg);
+    }
+  }
+
+  & .list {
+    display: flex;
+  }
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF, LocationStrategy, PathLocationStrategy, registerLocaleData } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import localePl from '@angular/common/locales/pl';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +15,7 @@ registerLocaleData(localePl);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, AppRoutingModule, MainModule],
+  imports: [BrowserModule, BrowserAnimationsModule, DragDropModule, CoreModule, SharedModule, AppRoutingModule, MainModule],
   providers: [
     {
       provide: LocationStrategy,

@@ -1,1 +1,21 @@
-<app-button [config]="{ name: 'common.buttons.trucks' }" (btnClick)="onClick()" />
+<app-button [config]="{ name: 'common.buttons.add', className: 'filled flat my-3' }" (btnClick)="onClickAdd()" />
+
+<form *ngIf="form" [formGroup]="form">
+  <div cdkDropListGroup class="d-flex flex-wrap">
+    @for (list of defaultConfig; track index; let index = $index) {
+      <div class="config-box" cdkDropList [cdkDropListData]="list" (cdkDropListDropped)="onDrop($event)">
+        <div class="header"><span class="icon" [ngStyle]="{ backgroundColor: getColor(index) }"></span> {{ list.name }}</div>
+        @for (item of list?.formconfig; track $index) {
+          <div class="list" cdkDrag [cdkDragData]="item">
+            <app-form-elements
+              *ngIf="getFormGroup(list.name, item.formControlName)"
+              ngDefaultControl
+              [formControl]="getFormGroup(list.name, item.formControlName) | formControlPipe"
+              [config]="item.config"
+            />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</form>
